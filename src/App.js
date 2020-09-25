@@ -1,52 +1,54 @@
 import React from 'react';
-// import logo from './logo.svg';
 import './App.css';
-import { connect } from 'react-redux'
+import { Form, Input, Button, Checkbox } from 'antd';
 
-function mapStateToProps(state) {
-  return {
-    reducer1: state.reducer1,
-    reducer2: state.reducer2,
-  }
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    dispatch
-  }
-}
-
+const layout = {
+  labelCol: { span: 8 },
+  wrapperCol: { span: 16 },
+};
+const tailLayout = {
+  wrapperCol: { offset: 8, span: 16 },
+};
 
 class App extends React.Component {
-  add = () =>{
-    this.props.dispatch({
-      type:'add'
-    })
-  }
   render() {
-    console.log(this.props)
     return (
-      <div className="App">
-        <header className="App-header">
-          {/* <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p> */}
-          {this.props.reducer1.num}
-          <button onClick={this.add}>增加</button>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <Form
+        {...layout}
+        name="basic"
+        initialValues={{ remember: true }}
+      // onFinish={onFinish}
+      // onFinishFailed={onFinishFailed}
+      >
+        <Form.Item
+          label="Username"
+          name="username"
+          rules={[{ required: true, message: 'Please input your username!' }]}
+        >
+          <Input />
+        </Form.Item>
+
+        <Form.Item
+          label="Password"
+          name="password"
+          rules={[{ required: true, message: 'Please input your password!' }]}
+        >
+          <Input.Password />
+        </Form.Item>
+
+        <Form.Item {...tailLayout} name="remember" valuePropName="checked">
+          <Checkbox>Remember me</Checkbox>
+        </Form.Item>
+
+        <Form.Item {...tailLayout}>
+          <Button type="primary" htmlType="submit">
+            Submit
+        </Button>
+        </Form.Item>
+      </Form>
     );
   }
 
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;
