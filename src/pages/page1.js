@@ -9,7 +9,7 @@ class Page1 extends React.Component {
     console.log(this.props)
     return (
       <div className="sty">
-        11111
+        111111
       </div>
     );
   }
