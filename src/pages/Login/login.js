@@ -1,6 +1,6 @@
 import React from 'react';
 // import logo from './logo.svg';
-import '../test.less';
+import styles from './main.less';
 import { Form, Input, Button, Checkbox } from 'antd';
 
 const layout = {
@@ -18,7 +18,7 @@ class Login extends React.Component {
   render() {
     console.log(this.props)
     return (
-      <div className="sty">
+      <div className={styles.sty}>
         <Form
           {...layout}
           name="basic"

@@ -7,10 +7,10 @@ import {
   VideoCameraOutlined,
   UploadOutlined,
 } from '@ant-design/icons';
-import { HashRouter, Link, Route, Switch } from 'react-router-dom';
-import './main.less';
-import Page1 from './page1';
-import Page2 from './page2';
+import { Link, Route } from 'react-router-dom';
+import styles from './main.less';
+import Page1 from '../page1';
+import Page2 from '../page2';
 
 const { Header, Sider, Content } = Layout;
 
@@ -28,7 +28,7 @@ export default class Main extends React.Component {
   render() {
     return (
       <Layout>
-        <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
+        <Sider className={styles.sider} trigger={null} collapsible collapsed={this.state.collapsed}>
           <div className="logo" />
           <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
             <Menu.Item key="1" icon={<UserOutlined />}>
@@ -42,15 +42,15 @@ export default class Main extends React.Component {
             </Menu.Item>
           </Menu>
         </Sider>
-        <Layout className="site-layout">
-          <Header className="site-layout-background" style={{ padding: 0 }}>
+        <Layout className={styles['site-layout']}>
+          <Header className={styles['site-layout-background']} style={{ padding: 0 }}>
             {React.createElement(this.state.collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
               className: 'trigger',
               onClick: this.toggle,
             })}
           </Header>
           <Content
-            className="site-layout-background"
+            className={styles['site-layout-background']}
             style={{
               margin: '24px 16px',
               padding: 24,
