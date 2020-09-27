@@ -12,6 +12,7 @@ import styles from './main.less';
 import Page1 from '../page1';
 import Page2 from '../page2';
 
+
 const { Header, Sider, Content } = Layout;
 
 export default class Main extends React.Component {
@@ -57,8 +58,8 @@ export default class Main extends React.Component {
               minHeight: 280,
             }}
           >
-                <Route path="/main/page1" component={Page1} exact></Route>
-                <Route path="/main/page2" component={Page2} exact></Route>
+            <Route path="/main/page1" component={Page1} exact></Route>
+            <Route path="/main/page2" component={Page2} exact></Route>
           </Content>
         </Layout>
       </Layout>
