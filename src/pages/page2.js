@@ -41,7 +41,7 @@ class Page2 extends React.Component {
     ]
     return (
       <div>
-        <Table columns={column} dataSource={this.state.data}>
+        <Table columns={column} rowKey="id" dataSource={this.state.data}>
 
         </Table>
       </div>

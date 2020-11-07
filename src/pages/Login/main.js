@@ -11,6 +11,7 @@ import { Link, Route } from 'react-router-dom';
 import styles from './main.less';
 import Page1 from '../page1';
 import Page2 from '../page2';
+import Page3 from '../page3';
 
 
 const { Header, Sider, Content } = Layout;
@@ -39,7 +40,7 @@ export default class Main extends React.Component {
               <Link to="/main/page2">page2</Link>
             </Menu.Item>
             <Menu.Item key="3" icon={<UploadOutlined />}>
-              nav 3
+            <Link to="/main/page3">page3</Link>
             </Menu.Item>
           </Menu>
         </Sider>
@@ -60,6 +61,7 @@ export default class Main extends React.Component {
           >
             <Route path="/main/page1" component={Page1} exact></Route>
             <Route path="/main/page2" component={Page2} exact></Route>
+            <Route path="/main/page3" component={Page3} exact></Route>
           </Content>
         </Layout>
       </Layout>

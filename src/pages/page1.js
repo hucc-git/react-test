@@ -1,19 +1,35 @@
 import React from 'react';
-
-
-class Page1 extends React.Component {
-  onClick = () =>{
-    this.props.history.push('/main')
+import { connect } from 'react-redux';
+import {Button} from 'antd'
+function mapStateToProps(state) {
+  return {
+    reducer1: state.reducer1,
+    reducer2: state.reducer2,
   }
-  render() {
-    console.log(this.props)
-    return (
-      <div className="sty">
-        111111
-      </div>
-    );
-  }
-
 }
 
-export default Page1;
+function mapDispatchToProps(dispatch) {
+  return {
+    dispatch
+  }
+}
+const Page1 = React.memo((props) => {
+  const [count, setCount] = React.useState(0);
+  const onClick = () => {
+    console.log(props, '123');
+    props.dispatch({ type: 'reducer1/add' })
+    // props.history.push('/main')
+  }
+  const goto = () =>{
+    console.log(props)
+    props.history.push({pathname:'/main/page3',state:{sss:'243124'}})
+  }
+  return <div className="sty">
+    <span onClick={onClick}>{props.reducer1.num}</span>
+    <br></br>
+    <span onClick={() => setCount(count + 1)}>{count}</span>
+    <Button onClick={goto}>跳转</Button>
+  </div>
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Page1);
