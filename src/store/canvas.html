@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .div{
+            width: 100%;
+            text-align: right;
+        }
+        .span{
+            display: inline-block;
+            animation: move 5s ease infinite;
+        }
+        @keyframes move {
+            0%{
+                transform: translateX(0);
+            }
+            100%{
+                transform: translateX(-500%);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- <canvas id="canvas" width="400" height="400"></div> -->
+        <div class="div"><span class="span">我是一行要横向滚动的文字</span></div>
+    <script>
+        // const ctx = document.getElementById('canvas').getContext('2d');
+        // ctx.fillRect(100,100,200,200)
+        
+    </script>
+</body>
+</html>

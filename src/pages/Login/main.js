@@ -7,11 +7,12 @@ import {
   VideoCameraOutlined,
   UploadOutlined,
 } from '@ant-design/icons';
-import { Link, Route } from 'react-router-dom';
+import { Link, Route,Switch } from 'react-router-dom';
 import styles from './main.less';
 import Page1 from '../page1';
 import Page2 from '../page2';
 import Page3 from '../page3';
+import NotFound from '../404';
 
 
 const { Header, Sider, Content } = Layout;
@@ -40,7 +41,7 @@ export default class Main extends React.Component {
               <Link to="/main/page2">page2</Link>
             </Menu.Item>
             <Menu.Item key="3" icon={<UploadOutlined />}>
-            <Link to="/main/page3">page3</Link>
+              <Link to="/main/page3">page3</Link>
             </Menu.Item>
           </Menu>
         </Sider>
@@ -59,9 +60,12 @@ export default class Main extends React.Component {
               minHeight: 280,
             }}
           >
-            <Route path="/main/page1" component={Page1} exact></Route>
-            <Route path="/main/page2" component={Page2} exact></Route>
-            <Route path="/main/page3" component={Page3} exact></Route>
+            <Switch>
+              <Route path="/main/page1" component={Page1} exact></Route>
+              <Route path="/main/page2" component={Page2} exact></Route>
+              <Route path="/main/page3" component={Page3} exact></Route>
+              <Route component={NotFound} />
+            </Switch>
           </Content>
         </Layout>
       </Layout>
